@@ -1,22 +1,30 @@
 {
   "name": "koishi-plugin-hassluna",
-  "description": "",
+  "description": "将 Home Assistant 接入 Koishi，通过 Koishi 控制家庭智能家居。",
   "version": "0.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
     "lib",
-    "dist"
+    "dist",
+    "resources"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "tool"
   ],
-  "devDependencies": {},
+  "service": {
+    "implements": [
+      "hassluna"
+    ]
+  },
   "peerDependencies": {
-    "koishi": "4.18.1"
+    "koishi": "4.18.0"
+  },
+  "dependencies": {
+    "yaml": "^2.6.0"
   }
 }
