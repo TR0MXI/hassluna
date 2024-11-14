@@ -55,6 +55,7 @@ export class HaWsClinet extends Service{
                         this.socket.onopen = this.onOpen
                         this.socket.onmessage = this.onMessage
                         this.socket.onerror = this.onError
+                        this.socket.onclose = this.onClose
                 } catch(error) {
                         ctx.logger.error(error)
                 }
@@ -114,6 +115,10 @@ export class HaWsClinet extends Service{
                                 this.debuglogger('哼！收到了pong！')
                                 break
                 }
+        }
+
+        private onClose = (event: Event) => {
+                this.ctx.logger.error('哎呀！连接断开了！' + JSON.stringify(event))
         }
 
         private onError = (event: Event) => {
